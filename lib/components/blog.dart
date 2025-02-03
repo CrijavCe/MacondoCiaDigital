@@ -7,6 +7,8 @@ import 'package:minimal/components/typography.dart';
 import 'package:minimal/pages/pages.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../shared/assets/assets.dart';
+
 class ImageWrapper extends StatelessWidget {
   final String image;
 
@@ -337,6 +339,7 @@ class MinimalMenuBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -352,12 +355,22 @@ class MinimalMenuBar extends StatelessWidget {
                     context,
                     Navigator.defaultRouteName,
                     ModalRoute.withName(Navigator.defaultRouteName)),
-                child: Text("MINIMAL",
-                    style: GoogleFonts.montserrat(
-                        color: textPrimary,
-                        fontSize: 30,
-                        letterSpacing: 3,
-                        fontWeight: FontWeight.w500)),
+                child: Column(
+                  children: [
+                    Center(
+                      child: Image.asset(Res.images.macondoLogoHome,
+                          height: size.height * 0.3, //50,
+                          width: size.width * 0.4 //45,
+                          ),
+                    ),
+                    /* Text("MACONDO",
+                        style: GoogleFonts.montserrat(
+                            color: textPrimary,
+                            fontSize: 30,
+                            letterSpacing: 3,
+                            fontWeight: FontWeight.w500)),*/
+                  ],
+                ),
               ),
               if (ResponsiveBreakpoints.of(context).isMobile) ...[
                 const Spacer(),
