@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minimal/components/components.dart';
+import 'package:minimal/config/config.dart';
 import 'package:minimal/utils/max_width_extension.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 

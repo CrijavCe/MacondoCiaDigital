@@ -8,12 +8,14 @@ class Res {
 class _ResImages {
   _ResImages._();
 
-  //final splashGeneric = 'res/images/splash_generic.png';
   final macondoLogoHome = 'res/images/fondo_amarillo.png';
+  final splashGeneric = 'res/images/fondo_amarillo.png';
 }
 
 class _ResIcons {
   _ResIcons._();
 
-  final macondoLogoHome = 'res/images/fondo_amarillo.png';
+  final whatsAppIcon = 'res/icons/whatsapp.png';
+  final whatsAppIcon1 = 'res/icons/Whatapp2.png';
+  final instagramIcon = 'res/icons/whatsapp.png';
 }

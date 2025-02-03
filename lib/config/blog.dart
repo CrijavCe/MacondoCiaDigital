@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minimal/components/color.dart';
-import 'package:minimal/components/spacing.dart';
-import 'package:minimal/components/text.dart';
-import 'package:minimal/components/typography.dart';
+import 'package:minimal/config/styles/app_colors.dart';
+import 'package:minimal/config/spacing.dart';
+import 'package:minimal/config/text.dart';
+import 'package:minimal/config/typography.dart';
 import 'package:minimal/pages/pages.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+
+import 'package:flutter_social_button/flutter_social_button.dart';
 
 import '../shared/assets/assets.dart';
 
@@ -81,15 +83,15 @@ class ReadMoreButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        overlayColor: WidgetStateProperty.all<Color>(textPrimary),
+        overlayColor: WidgetStateProperty.all<Color>(AppColors.textPrimary),
         side: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.focused) ||
               states.contains(WidgetState.hovered) ||
               states.contains(WidgetState.pressed)) {
-            return const BorderSide(color: textPrimary, width: 2);
+            return const BorderSide(color: AppColors.textPrimary, width: 2);
           }
 
-          return const BorderSide(color: textPrimary, width: 2);
+          return const BorderSide(color: AppColors.textPrimary, width: 2);
         }),
         foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.focused) ||
@@ -98,7 +100,7 @@ class ReadMoreButton extends StatelessWidget {
             return Colors.white;
           }
 
-          return textPrimary;
+          return AppColors.textPrimary;
         }),
         textStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
           if (states.contains(WidgetState.focused) ||
@@ -112,7 +114,7 @@ class ReadMoreButton extends StatelessWidget {
 
           return GoogleFonts.montserrat(
             textStyle: const TextStyle(
-                fontSize: 14, color: textPrimary, letterSpacing: 1),
+                fontSize: 14, color: AppColors.textPrimary, letterSpacing: 1),
           );
         }),
         padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
@@ -201,7 +203,7 @@ class PostNavigation extends StatelessWidget {
             const Icon(
               Icons.keyboard_arrow_left,
               size: 25,
-              color: textSecondary,
+              color: AppColors.textSecondary,
             ),
             Text("PREVIOUS POST", style: buttonTextStyle),
           ],
@@ -213,7 +215,7 @@ class PostNavigation extends StatelessWidget {
             const Icon(
               Icons.keyboard_arrow_right,
               size: 25,
-              color: textSecondary,
+              color: AppColors.textSecondary,
             ),
           ],
         )
@@ -235,7 +237,7 @@ class ListNavigation extends StatelessWidget {
             const Icon(
               Icons.keyboard_arrow_left,
               size: 25,
-              color: textSecondary,
+              color: AppColors.textSecondary,
             ),
             if (ResponsiveBreakpoints.of(context).largerThan(MOBILE))
               Text("NEWER POSTS", style: buttonTextStyle),
@@ -249,7 +251,7 @@ class ListNavigation extends StatelessWidget {
             const Icon(
               Icons.keyboard_arrow_right,
               size: 25,
-              color: textSecondary,
+              color: AppColors.textSecondary,
             ),
           ],
         )
@@ -344,7 +346,7 @@ class MinimalMenuBar extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(vertical: 30),
+          margin: const EdgeInsets.symmetric(vertical: 5),
           child: Row(
             children: [
               InkWell(
@@ -387,6 +389,9 @@ class MinimalMenuBar extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: Wrap(
                       children: [
+                        const WhatsAppSupportButton(),
+                        const InstagramSupportButton(),
+                        const FacebookSupportButton(),
                         TextButton(
                           onPressed: () => Navigator.pushNamedAndRemoveUntil(
                               context,
@@ -398,7 +403,8 @@ class MinimalMenuBar extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () =>
+                              Navigator.pushNamed(context, ListPage.name),
                           style: menuButtonStyle,
                           child: const Text(
                             "PORTFOLIO",
@@ -413,7 +419,8 @@ class MinimalMenuBar extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () =>
+                              Navigator.pushNamed(context, PostPage.name),
                           style: menuButtonStyle,
                           child: const Text(
                             "ABOUT",

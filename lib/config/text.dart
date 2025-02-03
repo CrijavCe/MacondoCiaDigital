@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:minimal/components/spacing.dart';
-import 'package:minimal/components/typography.dart';
+import 'package:minimal/config/spacing.dart';
+import 'package:minimal/config/typography.dart';
 
-import 'color.dart';
+import 'styles/app_colors.dart';
 
 class TextBody extends StatelessWidget {
   final String text;
@@ -79,7 +79,7 @@ class TextBlockquote extends StatelessWidget {
 }
 
 ButtonStyle? menuButtonStyle = TextButton.styleFrom(
-    foregroundColor: textSecondary,
+    foregroundColor: AppColors.textSecondary,
     backgroundColor: Colors.transparent,
     disabledForegroundColor: const Color.fromRGBO(
         0, 0, 0, 0.38), // Replace null with desired color and opacity
