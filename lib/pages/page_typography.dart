@@ -27,7 +27,7 @@ class TypographyPage extends StatelessWidget {
               alignment: Alignment.center,
               child: Container(
                 margin: marginBottom24,
-                child: Text("Text styles for pages and posts.",
+                child: Text("Macondo Text styles for pages and posts.",
                     style: subtitleTextStyle),
               ),
             ),
