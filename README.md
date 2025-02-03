@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![Screenshots](screenshots/Minimal%20Home.png)
 # [Flutter Minimal Website](https://gallery.codelessly.com/flutterwebsites/minimal/)
 [![Flutter Responsive](https://img.shields.io/badge/flutter-responsive-brightgreen.svg?style=flat-square)](https://github.com/Codelessly/ResponsiveFramework) [![GitHub release](https://img.shields.io/github/release/Codelessly/FlutterMinimalWebsite.svg?style=flat-square)](https://github.com/Codelessly/FlutterMinimalWebsite/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/Codelessly/FlutterMinimalWebsite.svg?style=flat-square)](https://github.com/Codelessly/FlutterMinimalWebsite/releases) [![GitHub issues](https://img.shields.io/github/issues/Codelessly/FlutterMinimalWebsite.svg?style=flat-square)](https://github.com/Codelessly/FlutterMinimalWebsite/issues) [![GitHub top language](https://img.shields.io/github/languages/top/Codelessly/FlutterMinimalWebsite.svg?style=flat-square)](https://github.com/Codelessly/FlutterMinimalWebsite) [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Codelessly/FlutterMinimalWebsite.svg?style=flat-square)](https://github.com/Codelessly/FlutterMinimalWebsite) [![Libraries.io for GitHub](https://img.shields.io/librariesio/github/Codelessly/FlutterMinimalWebsite.svg?style=flat-square)](https://libraries.io/github/Codelessly/FlutterMinimalWebsite) [![License](https://img.shields.io/badge/License-BSD%200--Clause-orange.svg?style=flat-square)](https://opensource.org/licenses/0BSD)
@@ -146,3 +147,7 @@ Please feel free to open an issue or reach out through one of the channel below.
     LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
     OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
     PERFORMANCE OF THIS SOFTWARE.
+=======
+# MacondoCiaDigital
+Alternativa de servicios digitales para realizar trámites de tránsito.
+>>>>>>> 7ea02d82aedaa8f2e3b989493bd95d1f7a9d6db3
