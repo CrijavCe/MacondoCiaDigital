@@ -2,20 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:minimal/config/router/app_route_provider.dart';
-//import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:minimal/routes.dart';
-import 'package:minimal/pages/pages.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:go_router/go_router.dart';
-//import 'app_router.dart'; // Importa el router provider
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:minimal/pages/pages.dart';
-import 'package:minimal/routes.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -4,7 +4,7 @@ import 'package:minimal/utils/max_width_extension.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class PostPage extends StatelessWidget {
-  static const String name = 'post';
+  static const String name = '/post';
 
   const PostPage({super.key});
 

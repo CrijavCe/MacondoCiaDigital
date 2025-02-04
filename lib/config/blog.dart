@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minimal/config/styles/app_colors.dart';
 import 'package:minimal/config/spacing.dart';
-import 'package:minimal/config/text.dart';
-import 'package:minimal/config/typography.dart';
-import 'package:minimal/pages/pages.dart';
+import 'package:minimal/config/styles/text_styles.dart';
+import 'package:minimal/config/styles/typography.dart';
+import 'package:minimal/presentation/pages/pages.dart';
+import 'package:minimal/shared/assets/assets.dart';
+import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
-import 'package:flutter_social_button/flutter_social_button.dart';
-
-import '../shared/assets/assets.dart';
 
 class ImageWrapper extends StatelessWidget {
   final String image;
@@ -18,7 +17,6 @@ class ImageWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO Listen to inherited widget width updates.
     double width = MediaQuery.of(context).size.width;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 24),
@@ -393,26 +391,28 @@ class MinimalMenuBar extends StatelessWidget {
                         const InstagramSupportButton(),
                         const FacebookSupportButton(),
                         TextButton(
-                          onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                          /*   onPressed: () => Navigator.pushNamedAndRemoveUntil(
                               context,
                               Navigator.defaultRouteName,
-                              ModalRoute.withName(Navigator.defaultRouteName)),
+                              ModalRoute.withName(Navigator.defaultRouteName)),*/
+
+                          onPressed: () => context.go(ListPage.name),
                           style: menuButtonStyle,
                           child: const Text(
                             "HOME",
                           ),
                         ),
                         TextButton(
-                          onPressed: () =>
-                              Navigator.pushNamed(context, ListPage.name),
+                          onPressed: () => context.go(ListPage.name),
                           style: menuButtonStyle,
                           child: const Text(
                             "PORTFOLIO",
                           ),
                         ),
                         TextButton(
-                          onPressed: () =>
-                              Navigator.pushNamed(context, TypographyPage.name),
+                          onPressed: () => context.go(TypographyPage.name),
+                          // onPressed: () =>
+                          //    Navigator.pushNamed(context, TypographyPage.name),
                           style: menuButtonStyle,
                           child: const Text(
                             "STYLE",
@@ -420,14 +420,15 @@ class MinimalMenuBar extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () =>
-                              Navigator.pushNamed(context, PostPage.name),
+                              //  Navigator.pushNamed(context, PostPage.name),
+                              context.go(PostPage.name),
                           style: menuButtonStyle,
                           child: const Text(
                             "ABOUT",
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () => context.go(PageRegister.name),
                           style: menuButtonStyle,
                           child: const Text(
                             "CONTACT",

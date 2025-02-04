@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:minimal/pages/pages.dart';
+import 'package:minimal/presentation/pages/pages.dart';
 
 // Provider de GoRouter
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -27,6 +26,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/typography',
         name: TypographyPage.name,
         builder: (context, state) => const TypographyPage(),
+      ),
+      GoRoute(
+        path: '/register',
+        name: PageRegister.name,
+        builder: (context, state) => const PageRegister(),
       ),
     ],
   );

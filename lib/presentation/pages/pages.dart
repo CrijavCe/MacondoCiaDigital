@@ -1,0 +1,6 @@
+export 'package:minimal/presentation/pages/splash_screen.dart';
+
+export 'page_list.dart';
+export 'page_post.dart';
+export 'page_typography.dart';
+export 'page_register.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:minimal/pages/pages.dart';
+import 'package:minimal/presentation/pages/pages.dart';
 import 'package:minimal/routes.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
