@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-//import 'package:macondo_client/config/styles/text_styles.dart';
-//import 'package:macondo_client/presentation/shared/widgets/shared.dart';
-
-import '../../shared/assets/assets.dart';
+import 'package:minimal/shared/assets/assets.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String name = 'splash';
@@ -24,7 +21,7 @@ class SplashScreen extends StatelessWidget {
           Center(
             child: Image.asset(
               Res.images.splashGeneric,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               width: size.width * 0.5,
               height: size.height * 0.6,
             ),

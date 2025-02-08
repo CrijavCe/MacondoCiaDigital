@@ -6,6 +6,8 @@ import 'package:responsive_framework/responsive_framework.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
 
+import 'presentation/providers/app_theme_provider.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -27,9 +29,12 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider); // Obtener GoRouter
+    final appTheme = ref.watch(appThemeProvider);
 
     return MaterialApp.router(
       routerConfig: router, // Usar GoRouter con Riverpod
+      theme: appTheme.getTheme(),
+
       builder: (context, child) => ResponsiveBreakpoints.builder(
         breakpoints: [
           const Breakpoint(start: 0, end: 450, name: MOBILE),

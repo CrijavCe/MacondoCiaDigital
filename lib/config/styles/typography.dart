@@ -1,4 +1,4 @@
-import 'package:flutter/painting.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minimal/config/styles/app_colors.dart';
 
@@ -25,7 +25,17 @@ TextStyle bodyTextStyle = GoogleFonts.openSans(
 
 TextStyle buttonTextStyle = GoogleFonts.montserrat(
     textStyle: const TextStyle(
-        fontSize: 14, color: AppColors.textPrimary, letterSpacing: 1));
+  fontSize: 14,
+  color: AppColors.textPrimary,
+  letterSpacing: 1,
+));
+
+TextStyle buttonTextStyleDarkMode = GoogleFonts.montserrat(
+    textStyle: const TextStyle(
+  fontSize: 14,
+  color: Colors.white,
+  letterSpacing: 1,
+));
 
 // Advanced
 // TODO: Add additional text styles.

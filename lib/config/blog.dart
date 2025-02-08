@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minimal/config/styles/app_colors.dart';
 import 'package:minimal/config/spacing.dart';
 import 'package:minimal/config/styles/text_styles.dart';
 import 'package:minimal/config/styles/typography.dart';
+import 'package:minimal/config/theme/app_theme.dart';
 import 'package:minimal/presentation/pages/pages.dart';
+import 'package:minimal/presentation/providers/app_theme_provider.dart';
 import 'package:minimal/shared/assets/assets.dart';
 import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -258,17 +262,161 @@ class ListNavigation extends StatelessWidget {
   }
 }
 
+// class Footer extends StatelessWidget {
+//   const Footer({super.key});
+
+//   // TODO Add additional footer components (i.e. about, links, logos).
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: const EdgeInsets.symmetric(vertical: 40),
+//       child: const Align(
+//         alignment: Alignment.centerRight,
+//         child: TextBody(text: "Copyright © 2024"),
+//       ),
+//     );
+//   }
+// }
+
 class Footer extends StatelessWidget {
   const Footer({super.key});
 
-  // TODO Add additional footer components (i.e. about, links, logos).
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 40),
-      child: const Align(
-        alignment: Alignment.centerRight,
-        child: TextBody(text: "Copyright © 2024"),
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Logo y Contacto
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(Res.images.macondoLogoHome,
+                      height: 150), // Ajusta el tamaño
+                  const SizedBox(height: 10),
+                  const Text(
+                    '+57 3174095757',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  const Text(
+                    'contacto@tramitesmacondo.com',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ],
+              ),
+
+              // Menú de navegación
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  footerLink('Inicio'),
+                  footerLink('Otros servicios'),
+                  footerLink('Nosotros'),
+                  footerLink('Blog'),
+                ],
+              ),
+
+              // Suscripción al boletín
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Suscríbete a nuestro boletín',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: 200,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Email *',
+                        hintStyle: const TextStyle(color: Colors.black),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Enviar'),
+                  ),
+                ],
+              ),
+
+              // Redes Sociales y Derechos
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Síguenos en:',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      FlutterSocialButton(
+                          onTap: () {
+                            //
+                          },
+                          mini: true,
+                          buttonType: ButtonType.whatsapp,
+                          title: 'Whatsapp',
+                          iconSize: 20),
+                      FlutterSocialButton(
+                          onTap: () {
+                            //
+                          },
+                          mini: true,
+                          buttonType: ButtonType.instagram,
+                          title: 'Whatsapp',
+                          iconSize: 20),
+                      FlutterSocialButton(
+                          onTap: () {
+                            //
+                          },
+                          mini: true,
+                          buttonType: ButtonType.facebook,
+                          title: 'Whatsapp',
+                          iconSize: 20),
+                    ],
+                  ),
+                  const Text(
+                    'Todos los derechos reservados',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  const Text(
+                    'Política de privacidad',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  const Text(
+                    '© 2024 Creado por Macondo SE.',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget footerLink(String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 1),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.black),
       ),
     );
   }
@@ -279,9 +427,17 @@ class ListItem extends StatelessWidget {
   final String title;
   final String? imageUrl;
   final String? description;
+  final bool? viewButton;
+  final bool? leftTitle;
 
-  const ListItem(
-      {super.key, required this.title, this.imageUrl, this.description});
+  const ListItem({
+    super.key,
+    required this.title,
+    this.imageUrl,
+    this.description,
+    this.viewButton = true,
+    this.leftTitle = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -292,7 +448,7 @@ class ListItem extends StatelessWidget {
             image: imageUrl!,
           ),
         Align(
-          alignment: Alignment.centerLeft,
+          alignment: leftTitle! ? Alignment.centerLeft : Alignment.center,
           child: Container(
             margin: marginBottom12,
             child: Text(
@@ -312,12 +468,15 @@ class ListItem extends StatelessWidget {
               ),
             ),
           ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Container(
-            margin: marginBottom24,
-            child: ReadMoreButton(
-              onPressed: () => Navigator.pushNamed(context, PostPage.name),
+        Visibility(
+          visible: viewButton!,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              margin: marginBottom24,
+              child: ReadMoreButton(
+                onPressed: () => Navigator.pushNamed(context, PostPage.name),
+              ),
             ),
           ),
         ),
@@ -334,17 +493,19 @@ class ListItem extends StatelessWidget {
  * navigation links. Navigation links collapse into
  * a hamburger menu on screens smaller than 400px.
  */
-class MinimalMenuBar extends StatelessWidget {
+class MinimalMenuBar extends ConsumerWidget {
   const MinimalMenuBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
+
+    final isDarkMode = ref.watch(appThemeProvider).isDarkMode;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(
-          margin: const EdgeInsets.symmetric(vertical: 5),
+        Padding(
+          padding: const EdgeInsets.only(top: 25.0),
           child: Row(
             children: [
               InkWell(
@@ -355,56 +516,52 @@ class MinimalMenuBar extends StatelessWidget {
                     context,
                     Navigator.defaultRouteName,
                     ModalRoute.withName(Navigator.defaultRouteName)),
-                child: Column(
-                  children: [
-                    Center(
-                      child: Image.asset(Res.images.macondoLogoHome,
-                          height: size.height * 0.3, //50,
-                          width: size.width * 0.4 //45,
-                          ),
+                child: SizedBox(
+                  child: Center(
+                    child: Image.asset(
+                      Res.images.macondoLogoMenu,
+                      height: ResponsiveBreakpoints.of(context).isTablet
+                          ? size.height * 0.1
+                          : size.height * 0.1,
+                      width: size.width * 0.4,
                     ),
-                    /* Text("MACONDO",
-                        style: GoogleFonts.montserrat(
-                            color: textPrimary,
-                            fontSize: 30,
-                            letterSpacing: 3,
-                            fontWeight: FontWeight.w500)),*/
-                  ],
+                  ),
                 ),
               ),
-              if (ResponsiveBreakpoints.of(context).isMobile) ...[
+              if (ResponsiveBreakpoints.of(context).isTablet) ...[
                 const Spacer(),
                 Transform.translate(
                   offset: const Offset(16, 0),
                   child: IconButton(
                     icon: const Icon(Icons.menu),
+                    iconSize: 50,
                     onPressed: () {},
                   ),
-                )
+                ),
+                const Spacer(),
               ] else
                 Flexible(
                   child: Container(
-                    alignment: Alignment.centerRight,
+                    alignment: Alignment.center,
                     child: Wrap(
                       children: [
                         const WhatsAppSupportButton(),
                         const InstagramSupportButton(),
                         const FacebookSupportButton(),
                         TextButton(
-                          /*   onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                              context,
-                              Navigator.defaultRouteName,
-                              ModalRoute.withName(Navigator.defaultRouteName)),*/
-
                           onPressed: () => context.go(ListPage.name),
-                          style: menuButtonStyle,
+                          style: isDarkMode
+                              ? menuButtonStyle
+                              : menuButtonStyleDarkMode,
                           child: const Text(
                             "HOME",
                           ),
                         ),
                         TextButton(
                           onPressed: () => context.go(ListPage.name),
-                          style: menuButtonStyle,
+                          style: isDarkMode
+                              ? menuButtonStyle
+                              : menuButtonStyleDarkMode,
                           child: const Text(
                             "PORTFOLIO",
                           ),
@@ -413,7 +570,9 @@ class MinimalMenuBar extends StatelessWidget {
                           onPressed: () => context.go(TypographyPage.name),
                           // onPressed: () =>
                           //    Navigator.pushNamed(context, TypographyPage.name),
-                          style: menuButtonStyle,
+                          style: isDarkMode
+                              ? menuButtonStyle
+                              : menuButtonStyleDarkMode,
                           child: const Text(
                             "STYLE",
                           ),
@@ -422,17 +581,33 @@ class MinimalMenuBar extends StatelessWidget {
                           onPressed: () =>
                               //  Navigator.pushNamed(context, PostPage.name),
                               context.go(PostPage.name),
-                          style: menuButtonStyle,
+                          style: isDarkMode
+                              ? menuButtonStyle
+                              : menuButtonStyleDarkMode,
                           child: const Text(
                             "ABOUT",
                           ),
                         ),
-                        TextButton(
-                          onPressed: () => context.go(PageRegister.name),
-                          style: menuButtonStyle,
-                          child: const Text(
-                            "CONTACT",
+                        Visibility(
+                          visible: false,
+                          child: TextButton(
+                            onPressed: () => context.go(PageRegister.name),
+                            style: isDarkMode
+                                ? menuButtonStyle
+                                : menuButtonStyleDarkMode,
+                            child: const Text(
+                              "CONTACT",
+                            ),
                           ),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                              isDarkMode ? Icons.dark_mode : Icons.light_mode),
+                          onPressed: () {
+                            ref
+                                .read(appThemeProvider.notifier)
+                                .toggleTheme(); // Cambia el tema
+                          },
                         ),
                       ],
                     ),
@@ -441,10 +616,10 @@ class MinimalMenuBar extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-            height: 1,
-            margin: const EdgeInsets.only(bottom: 30),
-            color: const Color(0xFFEEEEEE)),
+        // Container(
+        //     height: 1,
+        //     margin: const EdgeInsets.only(bottom: 30),
+        //     color: const Color(0xFFEEEEEE)),
       ],
     );
   }

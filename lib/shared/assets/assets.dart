@@ -9,6 +9,11 @@ class _ResImages {
   _ResImages._();
 
   final macondoLogoHome = 'res/images/fondo_amarillo.png';
+  final macondoLogoMenu = 'res/images/fondo_amarillo_menu.png';
+  final flitsas = 'res/images/flitsas_logo.png';
+  final bancolombia = 'res/images/bancolombia_logo.png';
+  final inteligente = 'res/images/inteligente_logo.png';
+  final logistica = 'res/images/logistica_logo.png';
   final splashGeneric = 'res/images/fondo_amarillo.png';
 }
 

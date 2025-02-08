@@ -1,3 +1,7 @@
+export 'package:minimal/shared/assets/widgets/custom_floating_action_button.dart';
+
+export 'package:minimal/shared/assets/widgets/custom_card_swipper.dart';
+
 export 'package:minimal/shared/assets/widgets/facebook_support_button.dart';
 export 'package:minimal/shared/assets/widgets/instagram_support_button.dart';
 export 'package:minimal/shared/assets/widgets/whatsapp_support_button.dart';

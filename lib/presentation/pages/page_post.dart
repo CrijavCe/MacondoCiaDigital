@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal/config/config.dart';
+import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:minimal/utils/max_width_extension.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -12,6 +13,7 @@ class PostPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
+      floatingActionButton: CustomFloatingActionButton(),
       body: CustomScrollView(
         slivers: [
           ...[
@@ -81,7 +83,7 @@ class PostPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 80),
               child: const PostNavigation(),
             ),
-          ].toMaxWidthSliver(),
+          ].toMaxWidthSliver(context),
           SliverFillRemaining(
             hasScrollBody: false,
             child: MaxWidthBox(
@@ -92,7 +94,7 @@ class PostPage extends StatelessWidget {
           ...[
             divider,
             const Footer(),
-          ].toMaxWidthSliver(),
+          ].toMaxWidthSliver(context),
         ],
       ),
     );

@@ -321,7 +321,7 @@ class PageRegisterState extends ConsumerState<PageRegister> {
                 ),
               ),
            */
-            ].toMaxWidth(),
+            ].toMaxWidth(context),
           ),
           SliverFillRemaining(
             hasScrollBody: false,
@@ -333,7 +333,7 @@ class PageRegisterState extends ConsumerState<PageRegister> {
           ...[
             divider,
             const Footer(),
-          ].toMaxWidthSliver(),
+          ].toMaxWidthSliver(context),
         ],
       ),
     );
