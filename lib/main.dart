@@ -17,7 +17,6 @@ void main() {
 
   runApp(
     const ProviderScope(
-      // Habilitar Riverpod
       child: MyApp(),
     ),
   );

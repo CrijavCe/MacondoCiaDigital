@@ -11,6 +11,7 @@ import 'package:minimal/config/theme/app_theme.dart';
 import 'package:minimal/presentation/pages/pages.dart';
 import 'package:minimal/presentation/providers/app_theme_provider.dart';
 import 'package:minimal/shared/assets/assets.dart';
+import 'package:minimal/shared/assets/widgets/custom_app_menu.dart';
 import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -262,22 +263,6 @@ class ListNavigation extends StatelessWidget {
   }
 }
 
-// class Footer extends StatelessWidget {
-//   const Footer({super.key});
-
-//   // TODO Add additional footer components (i.e. about, links, logos).
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       padding: const EdgeInsets.symmetric(vertical: 40),
-//       child: const Align(
-//         alignment: Alignment.centerRight,
-//         child: TextBody(text: "Copyright © 2024"),
-//       ),
-//     );
-//   }
-// }
-
 class Footer extends StatelessWidget {
   const Footer({super.key});
 
@@ -289,123 +274,128 @@ class Footer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Logo y Contacto
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(Res.images.macondoLogoHome,
-                      height: 150), // Ajusta el tamaño
-                  const SizedBox(height: 10),
-                  const Text(
-                    '+57 3174095757',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  const Text(
-                    'contacto@tramitesmacondo.com',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ],
-              ),
+          if (ResponsiveBreakpoints.of(context).isTablet) ...[
+            const Spacer(),
+            //
+            const Spacer(),
+          ] else
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Logo y Contacto
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(Res.images.macondoLogoHome,
+                        height: 150), // Ajusta el tamaño
+                    const SizedBox(height: 10),
+                    const Text(
+                      '+57 3174095757',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    const Text(
+                      'contacto@tramitesmacondo.com',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
 
-              // Menú de navegación
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  footerLink('Inicio'),
-                  footerLink('Otros servicios'),
-                  footerLink('Nosotros'),
-                  footerLink('Blog'),
-                ],
-              ),
+                // Menú de navegación
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    footerLink('Inicio'),
+                    footerLink('Otros servicios'),
+                    footerLink('Nosotros'),
+                    footerLink('Blog'),
+                  ],
+                ),
 
-              // Suscripción al boletín
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Suscríbete a nuestro boletín',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  const SizedBox(height: 8),
-                  SizedBox(
-                    width: 200,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Email *',
-                        hintStyle: const TextStyle(color: Colors.black),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
+                // Suscripción al boletín
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Suscríbete a nuestro boletín',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      width: 200,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Email *',
+                          hintStyle: const TextStyle(color: Colors.black),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Enviar'),
-                  ),
-                ],
-              ),
+                    const SizedBox(height: 8),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('Enviar'),
+                    ),
+                  ],
+                ),
 
-              // Redes Sociales y Derechos
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Síguenos en:',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      FlutterSocialButton(
-                          onTap: () {
-                            //
-                          },
-                          mini: true,
-                          buttonType: ButtonType.whatsapp,
-                          title: 'Whatsapp',
-                          iconSize: 20),
-                      FlutterSocialButton(
-                          onTap: () {
-                            //
-                          },
-                          mini: true,
-                          buttonType: ButtonType.instagram,
-                          title: 'Whatsapp',
-                          iconSize: 20),
-                      FlutterSocialButton(
-                          onTap: () {
-                            //
-                          },
-                          mini: true,
-                          buttonType: ButtonType.facebook,
-                          title: 'Whatsapp',
-                          iconSize: 20),
-                    ],
-                  ),
-                  const Text(
-                    'Todos los derechos reservados',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  const Text(
-                    'Política de privacidad',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  const Text(
-                    '© 2024 Creado por Macondo SE.',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                // Redes Sociales y Derechos
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Síguenos en:',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        FlutterSocialButton(
+                            onTap: () {
+                              //
+                            },
+                            mini: true,
+                            buttonType: ButtonType.whatsapp,
+                            title: 'Whatsapp',
+                            iconSize: 20),
+                        FlutterSocialButton(
+                            onTap: () {
+                              //
+                            },
+                            mini: true,
+                            buttonType: ButtonType.instagram,
+                            title: 'Whatsapp',
+                            iconSize: 20),
+                        FlutterSocialButton(
+                            onTap: () {
+                              //
+                            },
+                            mini: true,
+                            buttonType: ButtonType.facebook,
+                            title: 'Whatsapp',
+                            iconSize: 20),
+                      ],
+                    ),
+                    const Text(
+                      'Todos los derechos reservados',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    const Text(
+                      'Política de privacidad',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    const Text(
+                      '© 2024 Creado por Macondo SE.',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+              ],
+            ),
         ],
       ),
     );
@@ -531,13 +521,7 @@ class MinimalMenuBar extends ConsumerWidget {
               if (ResponsiveBreakpoints.of(context).isTablet) ...[
                 const Spacer(),
                 Transform.translate(
-                  offset: const Offset(16, 0),
-                  child: IconButton(
-                    icon: const Icon(Icons.menu),
-                    iconSize: 50,
-                    onPressed: () {},
-                  ),
-                ),
+                    offset: const Offset(16, 0), child: CustomAppMenu()),
                 const Spacer(),
               ] else
                 Flexible(

@@ -15,26 +15,28 @@ class CustomCardSwipper extends StatelessWidget {
     return Center(
       child: CarouselSlider(
         options: CarouselOptions(
-          height: size.height * 0.30,
+          height: size.height * 0.25,
           autoPlay: true,
           enlargeCenterPage: true,
           aspectRatio: 16 / 9,
           enableInfiniteScroll: true,
-          viewportFraction:
-              ResponsiveBreakpoints.of(context).isMobile ? 0.4 : 0.2,
+          viewportFraction: ResponsiveBreakpoints.of(context).isTablet ||
+                  ResponsiveBreakpoints.of(context).isMobile
+              ? 0.4
+              : 0.2,
         ),
         items: [
           CustomCard(
-              body:
-                  _MoviePoster(Res.images.flitsas, "https://flitsas.com.co/")),
+              body: _ContainerImage(
+                  Res.images.flitsas, "https://flitsas.com.co/")),
           CustomCard(
-              body: _MoviePoster(Res.images.bancolombia,
+              body: _ContainerImage(Res.images.bancolombia,
                   "https://tu360.grupobancolombia.com/movilidad/")),
           CustomCard(
-              body: _MoviePoster(
+              body: _ContainerImage(
                   Res.images.inteligente, "https://inteligentesas.com/")),
           CustomCard(
-              body: _MoviePoster(
+              body: _ContainerImage(
                   Res.images.logistica, "https://www.batralogistics.com/")),
         ],
       ),
@@ -72,8 +74,8 @@ class CustomCard extends StatelessWidget {
   }
 }
 
-class _MoviePoster extends StatelessWidget {
-  const _MoviePoster(this.logo, this.url);
+class _ContainerImage extends StatelessWidget {
+  const _ContainerImage(this.logo, this.url);
 
   final String logo;
 

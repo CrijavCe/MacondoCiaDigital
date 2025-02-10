@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:minimal/config/config.dart';
 import 'package:minimal/presentation/providers/app_theme_provider.dart';
-import 'package:minimal/shared/assets/assets.dart';
+import 'package:minimal/presentation/widget/footer_wg.dart';
 import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:minimal/utils/max_width_extension.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-// TODO Replace with object model.
 const String listItemTitleText = "A BETTER BLOG FOR WRITING";
 const String listItemPreviewText =
     "Sed elementum tempus egestas sed sed risus. Mauris in aliquam sem fringilla ut morbi tincidunt. Placerat vestibulum lectus mauris ultrices eros. Et leo duis ut diam. Auctor neque vitae tempus […]";
@@ -20,7 +19,7 @@ class ListPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    final isDarkMode = ref.watch(appThemeProvider).isDarkMode;
+    //final isDarkMode = ref.watch(appThemeProvider).isDarkMode;
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       floatingActionButton: CustomFloatingActionButton(),
@@ -34,7 +33,7 @@ class ListPage extends ConsumerWidget {
             flexibleSpace: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
               child: Container(
-                height: size.height * 0.2,
+                height: size.height * 0.15,
                 decoration: BoxDecoration(
                   color: Colors.white, // Fondo blanco
                   borderRadius: BorderRadius.circular(15), // Bordes redondeados
@@ -80,7 +79,8 @@ class ListPage extends ConsumerWidget {
           ),
           ...[
             divider,
-            const Footer(),
+            //const Footer(),
+            const Footer2(),
           ].toMaxWidthSliver(context),
         ],
       ),
