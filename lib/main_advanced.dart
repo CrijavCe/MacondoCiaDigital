@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minimal/presentation/pages/pages.dart';
+import 'package:minimal/presentation/pages/z_pages.dart';
 import 'package:minimal/routes.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -72,8 +72,8 @@ class MyApp extends StatelessWidget {
   Widget buildPage(String name) {
     switch (name) {
       case '/':
-      case ListPage.name:
-        return const ListPage();
+      case HomePage.name:
+        return const HomePage();
       case PostPage.name:
         return const PostPage();
       case TypographyPage.name:

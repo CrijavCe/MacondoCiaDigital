@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minimal/config/config.dart';
+import 'package:minimal/presentation/widget/footer_wg.dart';
+import 'package:minimal/presentation/widget/minimal_menu_bar_wg.dart';
 import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:minimal/utils/max_width_extension.dart';
 import 'package:responsive_framework/responsive_framework.dart';

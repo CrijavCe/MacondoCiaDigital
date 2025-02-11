@@ -4,8 +4,8 @@ import 'package:minimal/shared/assets/assets.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 
-class Footer2 extends StatelessWidget {
-  const Footer2({super.key});
+class Footer extends StatelessWidget {
+  const Footer({super.key});
 
   @override
   Widget build(BuildContext context) {

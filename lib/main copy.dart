@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:minimal/presentation/pages/pages.dart';
+import 'package:minimal/presentation/pages/z_pages.dart';
 import 'package:minimal/routes.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -22,8 +22,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Wrapping the app with a builder method makes breakpoints
-      // accessible throughout the widget tree.
       builder: (context, child) => ResponsiveBreakpoints.builder(
         breakpoints: [
           const Breakpoint(start: 0, end: 450, name: MOBILE),
@@ -48,8 +46,6 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  // onGenerateRoute route switcher.
-  // Navigate using the page name, `Navigator.pushNamed(context, ListPage.name)`.
   Route<dynamic> buildPage(
       {required String path, Map<String, String> queryParams = const {}}) {
     return Routes.noAnimation(
@@ -59,12 +55,8 @@ class MyApp extends StatelessWidget {
           String pathName =
               path != '/' && path.startsWith('/') ? path.substring(1) : path;
           return switch (pathName) {
-            '/' || ListPage.name => const ListPage(),
-            // '/' || ListPage.name => const SplashScreen(),
-            PostPage.name =>
-              // Breakpoints can be nested.
-              // Here's an example of custom "per-page" breakpoints.
-              const ResponsiveBreakpoints(breakpoints: [
+            '/' || HomePage.name => const HomePage(),
+            PostPage.name => const ResponsiveBreakpoints(breakpoints: [
                 Breakpoint(start: 0, end: 480, name: MOBILE),
                 Breakpoint(start: 481, end: 1200, name: TABLET),
                 Breakpoint(start: 1201, end: double.infinity, name: DESKTOP),
