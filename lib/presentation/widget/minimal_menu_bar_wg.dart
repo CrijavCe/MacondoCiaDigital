@@ -23,7 +23,7 @@ class MinimalMenuBar extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 25.0),
+          padding: const EdgeInsets.only(top: 14.0),
           child: Row(
             children: [
               InkWell(
@@ -39,8 +39,8 @@ class MinimalMenuBar extends ConsumerWidget {
                     child: Image.asset(
                       Res.images.macondoLogoMenu,
                       height: ResponsiveBreakpoints.of(context).isTablet
-                          ? size.height * 0.1
-                          : size.height * 0.1,
+                          ? size.height * 0.13
+                          : size.height * 0.15,
                       width: size.width * 0.4,
                     ),
                   ),

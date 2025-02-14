@@ -10,15 +10,38 @@ TextStyle headlineTextStyle = GoogleFonts.montserrat(
         letterSpacing: 1.5,
         fontWeight: FontWeight.w300));
 
+TextStyle statsTextStyle = GoogleFonts.montserrat(
+    textStyle: const TextStyle(
+        fontSize: 50,
+        color: Colors.greenAccent,
+        letterSpacing: 1.5,
+        fontWeight: FontWeight.w500));
+
+TextStyle headlineTextStyleWhite = GoogleFonts.montserrat(
+    textStyle: const TextStyle(
+  fontSize: 22,
+  color: Colors.white,
+  letterSpacing: 1.5,
+  fontWeight: FontWeight.w300,
+));
+
 TextStyle headlineSecondaryTextStyle = GoogleFonts.montserrat(
     textStyle: const TextStyle(
         fontSize: 20,
         color: AppColors.textPrimary,
         fontWeight: FontWeight.w300));
 
+TextStyle headlineSecondaryTextStyleWhite = GoogleFonts.montserrat(
+    textStyle: const TextStyle(
+        fontSize: 24, color: Colors.white, fontWeight: FontWeight.w300));
+
 TextStyle subtitleTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
         fontSize: 14, color: AppColors.textSecondary, letterSpacing: 1));
+
+TextStyle subtitleTextStyleWhite = GoogleFonts.openSans(
+    textStyle:
+        const TextStyle(fontSize: 14, color: Colors.white, letterSpacing: 1));
 
 TextStyle bodyTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(fontSize: 14, color: AppColors.textPrimary));

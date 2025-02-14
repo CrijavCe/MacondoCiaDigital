@@ -10,4 +10,5 @@ class AppColors {
   static const Color darkGray = Color(0xFF30333C);
   static const Color fabColor = Color(0xFFFA972B);
   static const Color dialogBackgroung = Color.fromRGBO(228, 234, 228, 1);
+  static const Color backgroundColor = Color(0xFFF5F5F5);
 }

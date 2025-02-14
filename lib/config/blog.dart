@@ -123,6 +123,12 @@ class ReadMoreButton extends StatelessWidget {
 }
 
 const Widget divider = Divider(color: Color(0xFFEEEEEE), thickness: 1);
+
+const Widget dividerPadding = Padding(
+  padding: EdgeInsets.symmetric(vertical: 60.0),
+  child: Divider(color: Color.fromARGB(255, 175, 193, 202), thickness: 1),
+);
+
 Widget dividerSmall = Container(
   width: 40,
   decoration: const BoxDecoration(
@@ -285,6 +291,7 @@ class ListItem extends StatelessWidget {
           child: Container(
             margin: marginBottom12,
             child: Text(
+              textAlign: TextAlign.center,
               title,
               style: headlineTextStyle,
             ),

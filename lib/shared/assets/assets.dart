@@ -15,6 +15,10 @@ class _ResImages {
   final inteligente = 'res/images/inteligente_logo.png';
   final logistica = 'res/images/logistica_logo.png';
   final splashGeneric = 'res/images/fondo_amarillo.png';
+
+  final traficImage = 'res/backgrounds/traficInfoBackground.jpg';
+  final traficImage2 = 'res/backgrounds/track_info.jpg';
+  final relaxingAbstractYellow = 'res/backgrounds/Relaxing_Abstract_yellow.gif';
 }
 
 class _ResIcons {
