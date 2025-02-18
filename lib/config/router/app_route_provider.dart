@@ -11,7 +11,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 // Provider de GoRouter
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/',
     routes: [
       GoRoute(
         path: '/',
@@ -73,9 +73,9 @@ class MainLayout extends StatelessWidget {
             backgroundColor: Colors.transparent,
             toolbarHeight: size.height * 0.30,
             flexibleSpace: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
               child: Container(
-                height: size.height * 0.20,
+                height: size.height * 0.25,
                 decoration: BoxDecoration(
                   color: Colors.white, // Fondo blanco
                   borderRadius: BorderRadius.circular(15), // Bordes redondeados

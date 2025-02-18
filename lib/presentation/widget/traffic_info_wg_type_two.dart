@@ -25,7 +25,7 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
                   ResponsiveBreakpoints.of(context).isMobile
               ? Column(
                   spacing: 20,
-                  children: _buildLayoutMobile(size.height * 0.35, context),
+                  children: _buildLayoutMobile(size.height * 0.3, context),
                 )
               : Row(
                   spacing: 40.0,

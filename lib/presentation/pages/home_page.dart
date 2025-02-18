@@ -6,6 +6,7 @@ import 'package:minimal/presentation/widget/footer_wg.dart';
 import 'package:minimal/presentation/widget/stats_wg.dart';
 import 'package:minimal/presentation/widget/traffic_info_wg_type_one.dart';
 import 'package:minimal/presentation/widget/traffic_info_wg_type_two.dart';
+import 'package:minimal/shared/assets/widgets/custom_text_swipper.dart';
 import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -17,7 +18,9 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Widget> sections = [
-      FadeInUp(
+      dividerPadding,
+      CustomTextSwipper(),
+      /* FadeInUp(
         from: 50,
         child: const ListItem(
           title:
@@ -28,7 +31,6 @@ class HomePage extends ConsumerWidget {
           //leftTitle: true,
         ),
       ),
-      dividerPadding,
       FadeInUp(
         from: 50,
         child: const ListItem(
@@ -38,7 +40,7 @@ class HomePage extends ConsumerWidget {
           textAlign: TextAlign.center,
           leftTitle: false,
         ),
-      ),
+      ),*/
       dividerPadding,
       TrafficInfoWidget(),
       dividerPadding,
@@ -47,7 +49,7 @@ class HomePage extends ConsumerWidget {
         viewButton: false,
         leftTitle: false,
       ),
-      StatsWidget(),
+      Center(child: StatsWidget()),
       dividerPadding,
       TrafficInfoWidgetTypeTwo(),
       dividerPadding,
