@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:minimal/config/config.dart';
+import 'package:minimal/shared/assets/widgets/shared.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
@@ -8,25 +10,44 @@ class CustomFloatingActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-        onPressed: () {
-          const phoneNumber = '+15551495796'; // Se recomienda incluir el +
-          const message = "Hola, necesito ayuda con mi solicitud.";
-          _openWhatsApp(phoneNumber, message);
-        },
-        backgroundColor: const Color.fromARGB(255, 45, 96, 100),
-        child: Icon(
-          Icons.chat,
-          size: 30,
-          color: Colors.white,
-        )
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        CustomCard(
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Text(
+                  "Habla con nosotros  ",
+                  style: TextStyles.headlineSecondaryTextStyle(fontSize: 12),
+                ),
+                Icon(Icons.local_police_outlined),
+              ],
+            ),
+          ),
+        ),
+        FloatingActionButton(
+            onPressed: () {
+              const phoneNumber = '+15551495796'; // Se recomienda incluir el +
+              const message = "Hola, necesito ayuda con mi solicitud.";
+              _openWhatsApp(phoneNumber, message);
+            },
+            backgroundColor: const Color.fromARGB(255, 45, 96, 100),
+            child: Icon(
+              Icons.chat,
+              size: 30,
+              color: Colors.white,
+            )
 
-        //  Image.asset(
-        //   Res.icons.whatsAppIcon1,
-        //   width: 30,
-        //   height: 30,
-        // ),
-        );
+            //  Image.asset(
+            //   Res.icons.whatsAppIcon1,
+            //   width: 30,
+            //   height: 30,
+            // ),
+            ),
+      ],
+    );
   }
 }
 

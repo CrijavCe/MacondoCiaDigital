@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal/config/config.dart';
 
@@ -28,7 +29,12 @@ class StatsWidget extends StatelessWidget {
               SizedBox(width: size.width * 0.06),
               Row(
                   spacing: 4.0,
-                  children: stats.map((stat) => StatItem(stat: stat)).toList()),
+                  children: stats
+                      .map((stat) => FadeInDown(
+                          delay: Duration(seconds: 1),
+                          duration: Duration(seconds: 2),
+                          child: StatItem(stat: stat)))
+                      .toList()),
               SizedBox(width: size.width * 0.06),
               Icon(
                 Icons.keyboard_double_arrow_right_rounded,

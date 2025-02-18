@@ -19,6 +19,7 @@ class _ResImages {
   final traficImage = 'res/backgrounds/traficInfoBackground.jpg';
   final traficImage2 = 'res/backgrounds/track_info.jpg';
   final relaxingAbstractYellow = 'res/backgrounds/Relaxing_Abstract_yellow.gif';
+  final relaxingAbstractBlue = 'res/backgrounds/Relaxing_Abstract_blue.gif';
 }
 
 class _ResIcons {

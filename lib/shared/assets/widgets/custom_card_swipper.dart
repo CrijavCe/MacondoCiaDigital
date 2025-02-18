@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:minimal/shared/assets/assets.dart';
@@ -12,33 +13,37 @@ class CustomCardSwipper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Center(
-      child: CarouselSlider(
-        options: CarouselOptions(
-          height: size.height * 0.25,
-          autoPlay: true,
-          enlargeCenterPage: true,
-          aspectRatio: 16 / 9,
-          enableInfiniteScroll: true,
-          viewportFraction: ResponsiveBreakpoints.of(context).isTablet ||
-                  ResponsiveBreakpoints.of(context).isMobile
-              ? 0.4
-              : 0.2,
+    return FadeInDown(
+      //delay: Duration(seconds: 1),
+      duration: Duration(seconds: 2),
+      child: Center(
+        child: CarouselSlider(
+          options: CarouselOptions(
+            height: size.height * 0.25,
+            autoPlay: true,
+            enlargeCenterPage: true,
+            aspectRatio: 16 / 9,
+            enableInfiniteScroll: true,
+            viewportFraction: ResponsiveBreakpoints.of(context).isTablet ||
+                    ResponsiveBreakpoints.of(context).isMobile
+                ? 0.4
+                : 0.2,
+          ),
+          items: [
+            CustomCard(
+                body: _ContainerImage(
+                    Res.images.flitsas, "https://flitsas.com.co/")),
+            CustomCard(
+                body: _ContainerImage(Res.images.bancolombia,
+                    "https://tu360.grupobancolombia.com/movilidad/")),
+            CustomCard(
+                body: _ContainerImage(
+                    Res.images.inteligente, "https://inteligentesas.com/")),
+            CustomCard(
+                body: _ContainerImage(
+                    Res.images.logistica, "https://www.batralogistics.com/")),
+          ],
         ),
-        items: [
-          CustomCard(
-              body: _ContainerImage(
-                  Res.images.flitsas, "https://flitsas.com.co/")),
-          CustomCard(
-              body: _ContainerImage(Res.images.bancolombia,
-                  "https://tu360.grupobancolombia.com/movilidad/")),
-          CustomCard(
-              body: _ContainerImage(
-                  Res.images.inteligente, "https://inteligentesas.com/")),
-          CustomCard(
-              body: _ContainerImage(
-                  Res.images.logistica, "https://www.batralogistics.com/")),
-        ],
       ),
     );
   }

@@ -71,9 +71,8 @@ class PostPage extends StatelessWidget {
             const Align(
               alignment: Alignment.centerLeft,
               child: TagWrapper(tags: [
-                Tag(tag: "Writing"),
-                Tag(tag: "Photography"),
-                Tag(tag: "Development")
+                //Tag(tag: "Photography"),
+                //Tag(tag: "Development")
               ]),
             ),
             ...authorSection(

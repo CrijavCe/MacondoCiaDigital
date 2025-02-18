@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color textPrimary = Color(0xFF111111);
   static const Color textSecondary = Color(0xFF3A3A3A);
+  static const Color textBodyWhite = Colors.white;
+  static const Color textBodyBlack = Colors.black;
 
   static const Color primaryColor = Color(0xFF096244);
   static const Color formBackground = Color(0xFFF7F7F7);

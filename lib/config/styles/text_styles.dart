@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:minimal/config/spacing.dart';
 import 'package:minimal/config/styles/typography.dart';
 
@@ -205,6 +206,45 @@ class TextStyles {
       fontFamily: 'CanvaSans',
       fontSize: 14,
     );
+  }
+
+  static TextStyle headlineTextStyle(
+      {Color color = Colors.black, bool isBold = false}) {
+    TextStyle textStyle = GoogleFonts.montserrat(
+        textStyle: TextStyle(
+      fontSize: 22,
+      color: color,
+      letterSpacing: 1.5,
+      fontWeight: FontWeight.w300,
+    ));
+
+    return textStyle;
+  }
+
+  static TextStyle headlineSecondaryTextStyle(
+      {Color color = Colors.black, bool isBold = false, double fontSize = 20}) {
+    TextStyle textStyle = GoogleFonts.montserrat(
+        textStyle: TextStyle(
+      fontSize: fontSize,
+      color: color,
+      letterSpacing: 1.5,
+      fontWeight: FontWeight.w300,
+    ));
+
+    return textStyle;
+  }
+
+  static TextStyle titleTextStyle(
+      {Color color = Colors.black, bool isBold = false}) {
+    TextStyle textStyleWhite = GoogleFonts.montserrat(
+        textStyle: TextStyle(
+      fontSize: 26,
+      color: color,
+      letterSpacing: 1.5,
+      fontWeight: FontWeight.w300,
+    ));
+
+    return textStyleWhite;
   }
 
   static TextStyle bodyUnderLineStyle(

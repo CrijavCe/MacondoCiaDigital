@@ -46,13 +46,14 @@ class TagWrapper extends StatelessWidget {
 
 class Tag extends StatelessWidget {
   final String tag;
+  final VoidCallback onPressed;
 
-  const Tag({super.key, required this.tag});
+  const Tag({super.key, required this.tag, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       fillColor: const Color(0xFF242424),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       elevation: 0,
@@ -70,55 +71,56 @@ class Tag extends StatelessWidget {
 
 class ReadMoreButton extends StatelessWidget {
   final VoidCallback onPressed;
+  final String title;
 
-  const ReadMoreButton({super.key, required this.onPressed});
+  const ReadMoreButton(
+      {super.key, required this.onPressed, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-        overlayColor: WidgetStateProperty.all<Color>(AppColors.textPrimary),
-        side: WidgetStateProperty.resolveWith((states) {
-          if (states.contains(WidgetState.focused) ||
-              states.contains(WidgetState.hovered) ||
-              states.contains(WidgetState.pressed)) {
+        onPressed: onPressed,
+        style: ButtonStyle(
+          overlayColor: WidgetStateProperty.all<Color>(AppColors.textPrimary),
+          side: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.focused) ||
+                states.contains(WidgetState.hovered) ||
+                states.contains(WidgetState.pressed)) {
+              return const BorderSide(color: AppColors.textPrimary, width: 2);
+            }
+
             return const BorderSide(color: AppColors.textPrimary, width: 2);
-          }
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.focused) ||
+                states.contains(WidgetState.hovered) ||
+                states.contains(WidgetState.pressed)) {
+              return Colors.white;
+            }
 
-          return const BorderSide(color: AppColors.textPrimary, width: 2);
-        }),
-        foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.focused) ||
-              states.contains(WidgetState.hovered) ||
-              states.contains(WidgetState.pressed)) {
-            return Colors.white;
-          }
+            return AppColors.textPrimary;
+          }),
+          textStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
+            if (states.contains(WidgetState.focused) ||
+                states.contains(WidgetState.hovered) ||
+                states.contains(WidgetState.pressed)) {
+              return GoogleFonts.montserrat(
+                textStyle: const TextStyle(
+                    fontSize: 14, color: Colors.white, letterSpacing: 1),
+              );
+            }
 
-          return AppColors.textPrimary;
-        }),
-        textStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
-          if (states.contains(WidgetState.focused) ||
-              states.contains(WidgetState.hovered) ||
-              states.contains(WidgetState.pressed)) {
             return GoogleFonts.montserrat(
               textStyle: const TextStyle(
-                  fontSize: 14, color: Colors.white, letterSpacing: 1),
+                  fontSize: 14, color: AppColors.textPrimary, letterSpacing: 1),
             );
-          }
-
-          return GoogleFonts.montserrat(
-            textStyle: const TextStyle(
-                fontSize: 14, color: AppColors.textPrimary, letterSpacing: 1),
-          );
-        }),
-        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-            const EdgeInsets.symmetric(horizontal: 12, vertical: 16)),
-      ),
-      child: const Text(
-        "READ MORE",
-      ),
-    );
+          }),
+          padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 16)),
+        ),
+        child: Text(
+          title,
+        ));
   }
 }
 
@@ -268,6 +270,8 @@ class ListItem extends StatelessWidget {
   final String? description;
   final bool? viewButton;
   final bool? leftTitle;
+  final TextAlign? textAlign;
+  final String? titleButton;
 
   const ListItem({
     super.key,
@@ -276,6 +280,8 @@ class ListItem extends StatelessWidget {
     this.description,
     this.viewButton = true,
     this.leftTitle = true,
+    this.textAlign = TextAlign.center,
+    this.titleButton = "  Más Información  ",
   });
 
   @override
@@ -291,7 +297,7 @@ class ListItem extends StatelessWidget {
           child: Container(
             margin: marginBottom12,
             child: Text(
-              textAlign: TextAlign.center,
+              textAlign: textAlign,
               title,
               style: headlineTextStyle,
             ),
@@ -299,7 +305,7 @@ class ListItem extends StatelessWidget {
         ),
         if (description != null)
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.center,
             child: Container(
               margin: marginBottom12,
               child: Text(
@@ -311,10 +317,11 @@ class ListItem extends StatelessWidget {
         Visibility(
           visible: viewButton!,
           child: Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.center,
             child: Container(
               margin: marginBottom24,
               child: ReadMoreButton(
+                title: titleButton!,
                 onPressed: () => Navigator.pushNamed(context, PostPage.name),
               ),
             ),

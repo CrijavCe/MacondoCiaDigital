@@ -68,7 +68,7 @@ class HomeForm extends ConsumerWidget {
                 Text(
                   textAlign: TextAlign.center,
                   'REGISTRARSE',
-                  // style: TextStyles.large2Style(isBold: true),
+                  //style: TextStyles.large2Style(isBold: true),
                   style: headlineTextStyle,
                 ),
               ],

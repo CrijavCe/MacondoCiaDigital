@@ -20,7 +20,16 @@ TextStyle statsTextStyle = GoogleFonts.montserrat(
 TextStyle headlineTextStyleWhite = GoogleFonts.montserrat(
     textStyle: const TextStyle(
   fontSize: 22,
-  color: Colors.white,
+  // color: Colors.white,
+  color: AppColors.backgroundColor,
+  letterSpacing: 1.5,
+  fontWeight: FontWeight.w300,
+));
+
+TextStyle headlineTextStyleBlack = GoogleFonts.montserrat(
+    textStyle: const TextStyle(
+  fontSize: 22,
+  color: Colors.black,
   letterSpacing: 1.5,
   fontWeight: FontWeight.w300,
 ));

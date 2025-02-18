@@ -32,6 +32,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             path: '/us',
             name: UsPage.name,
             builder: (context, state) => const UsPage(),
+            // builder: (context, state) => const PostPage(),
           ),
           GoRoute(
             path: '/more',
