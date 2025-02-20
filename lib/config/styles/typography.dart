@@ -9,6 +9,12 @@ TextStyle headlineTextStyle = GoogleFonts.montserrat(
         color: AppColors.textPrimary,
         letterSpacing: 1.5,
         fontWeight: FontWeight.w300));
+TextStyle headlineTextStyleEmoji = GoogleFonts.notoColorEmoji(
+    textStyle: const TextStyle(
+        fontSize: 26,
+        color: AppColors.textPrimary,
+        letterSpacing: 1.5,
+        fontWeight: FontWeight.w300));
 
 TextStyle statsTextStyle = GoogleFonts.montserrat(
     textStyle: const TextStyle(
@@ -23,7 +29,7 @@ TextStyle headlineTextStyleWhite = GoogleFonts.montserrat(
   // color: Colors.white,
   color: AppColors.backgroundColor,
   letterSpacing: 1.5,
-  fontWeight: FontWeight.w300,
+  fontWeight: FontWeight.bold,
 ));
 
 TextStyle headlineTextStyleBlack = GoogleFonts.montserrat(
@@ -42,7 +48,7 @@ TextStyle headlineSecondaryTextStyle = GoogleFonts.montserrat(
 
 TextStyle headlineSecondaryTextStyleWhite = GoogleFonts.montserrat(
     textStyle: const TextStyle(
-        fontSize: 24, color: Colors.white, fontWeight: FontWeight.w300));
+        fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold));
 
 TextStyle subtitleTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(

@@ -33,6 +33,7 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   cupertino_icons: ^1.0.8
   carousel_slider: ^5.0.0
+  flutter_emoji: ^2.5.1
   
 
 dev_dependencies:
@@ -78,7 +79,7 @@ flutter:
     - family: Urbanist-Bold
       fonts:
         - asset: assets/fonts/Urbanist-ExtraBold.ttf
-
     - family: CanvaSans
       fonts:
         - asset: assets/fonts/CanvaSans-Regular.otf
+    

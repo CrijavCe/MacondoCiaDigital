@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minimal/config/styles/app_colors.dart';
 import 'package:minimal/config/spacing.dart';
 import 'package:minimal/config/styles/text_styles.dart';
 import 'package:minimal/config/styles/typography.dart';
+import 'package:minimal/presentation/pages/us_page.dart';
 import 'package:minimal/presentation/pages/z_pages.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -264,7 +266,6 @@ class ListNavigation extends StatelessWidget {
 }
 
 class ListItem extends StatelessWidget {
-  // TODO replace with Post item model.
   final String title;
   final String? imageUrl;
   final String? description;
@@ -272,6 +273,7 @@ class ListItem extends StatelessWidget {
   final bool? leftTitle;
   final TextAlign? textAlign;
   final String? titleButton;
+  final String? routePage;
 
   const ListItem({
     super.key,
@@ -282,6 +284,7 @@ class ListItem extends StatelessWidget {
     this.leftTitle = true,
     this.textAlign = TextAlign.center,
     this.titleButton = "  Más Información  ",
+    this.routePage,
   });
 
   @override
@@ -295,7 +298,10 @@ class ListItem extends StatelessWidget {
         Align(
           alignment: leftTitle! ? Alignment.centerLeft : Alignment.center,
           child: Container(
-            margin: marginBottom12,
+            margin: ResponsiveBreakpoints.of(context).isTablet ||
+                    ResponsiveBreakpoints.of(context).isMobile
+                ? EdgeInsets.symmetric(horizontal: 50.0)
+                : EdgeInsets.symmetric(horizontal: 100.0),
             child: Text(
               textAlign: textAlign,
               title,
@@ -318,11 +324,14 @@ class ListItem extends StatelessWidget {
           visible: viewButton!,
           child: Align(
             alignment: Alignment.center,
-            child: Container(
-              margin: marginBottom24,
-              child: ReadMoreButton(
-                title: titleButton!,
-                onPressed: () => Navigator.pushNamed(context, PostPage.name),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: Container(
+                margin: marginBottom24,
+                child: ReadMoreButton(
+                  title: titleButton!,
+                  onPressed: () => context.go(routePage!),
+                ),
               ),
             ),
           ),

@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:minimal/config/config.dart';
@@ -18,30 +17,7 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Widget> sections = [
-      dividerPadding,
       CustomTextSwipper(),
-      /* FadeInUp(
-        from: 50,
-        child: const ListItem(
-          title:
-              "Curso Pedagógico 100% DIGITAL para pago con descuento de Infracciones de Tránsito. Haz el curso pedagógico y accede al descuento en tu comparendo desde la comodidad de tu computador.",
-          textAlign: TextAlign.left,
-          viewButton: true,
-          titleButton: "  ¡Lo quiero ya!  ",
-          //leftTitle: true,
-        ),
-      ),
-      FadeInUp(
-        from: 50,
-        child: const ListItem(
-          title:
-              "Confirmamos el comparendo > Te matriculamos en el curso >\nLo realizas según tu conveniencia y listo.\nPagas tu comparendo con 50% de descuento si madrugaste\no 25% si te cogió la tarde.",
-          viewButton: true,
-          textAlign: TextAlign.center,
-          leftTitle: false,
-        ),
-      ),*/
-      dividerPadding,
       TrafficInfoWidget(),
       dividerPadding,
       const ListItem(
@@ -62,7 +38,6 @@ class HomePage extends ConsumerWidget {
       dividerPadding,
       const Footer(),
     ];
-
     return Padding(
       padding: ResponsiveBreakpoints.of(context).isTablet
           ? const EdgeInsets.symmetric(horizontal: 10.0)

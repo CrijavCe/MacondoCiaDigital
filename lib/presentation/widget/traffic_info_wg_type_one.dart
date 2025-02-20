@@ -53,6 +53,7 @@ class TrafficInfoWidget extends StatelessWidget {
                     image: AssetImage(
                         Res.images.relaxingAbstractYellow), // Imagen de fondo
                     fit: BoxFit.cover,
+                    opacity: 1.0,
                   ),
                 ),
                 child: Center(

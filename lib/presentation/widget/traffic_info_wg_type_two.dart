@@ -66,9 +66,7 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
                               textAlign: TextAlign.center,
                               // maxLines: 5,
                               'ACCESO RÁPIDO Y EFECTIVO AL DESCUENTO',
-                              style: TextStyles.titleTextStyle(
-                                  color: AppColors.textBodyWhite,
-                                  isBold: true)),
+                              style: headlineTextStyleWhite),
                         ),
                         //   divider,
                       ],
@@ -195,16 +193,7 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
                       ),
                     ),
                   ),
-                  /* Align(
-                    alignment: Alignment.topCenter,
-                    child: TagWrapper(tags: [
-                      Tag(
-                        tag: "Ver el proceso completo",
-                        onPressed: () {},
-                      ),
-                      //Tag(tag: "Photography"),
-                    ]),
-                  ),*/
+
                   Align(
                     alignment: Alignment.center,
                     child: Container(
@@ -253,9 +242,7 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 // maxLines: 5,
                                 'ACCESO RÁPIDO Y EFECTIVO AL DESCUENTO',
-                                style: TextStyles.titleTextStyle(
-                                    color: AppColors.textBodyWhite,
-                                    isBold: true)),
+                                style: headlineTextStyleWhite),
                           ),
                           divider,
                         ],

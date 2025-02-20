@@ -234,6 +234,19 @@ class TextStyles {
     return textStyle;
   }
 
+  static TextStyle headlineSecondaryEmoji(
+      {Color color = Colors.black, bool isBold = false, double fontSize = 20}) {
+    TextStyle textStyle = GoogleFonts.notoColorEmoji(
+        textStyle: TextStyle(
+      fontSize: fontSize,
+      color: color,
+      // letterSpacing: 1.5,
+      fontWeight: FontWeight.w300,
+    ));
+
+    return textStyle;
+  }
+
   static TextStyle titleTextStyle(
       {Color color = Colors.black, bool isBold = false}) {
     TextStyle textStyleWhite = GoogleFonts.montserrat(

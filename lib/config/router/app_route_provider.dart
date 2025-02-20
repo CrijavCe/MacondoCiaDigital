@@ -73,9 +73,9 @@ class MainLayout extends StatelessWidget {
             backgroundColor: Colors.transparent,
             toolbarHeight: size.height * 0.30,
             flexibleSpace: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
               child: Container(
-                height: size.height * 0.25,
+                height: size.height * 0.2,
                 decoration: BoxDecoration(
                   color: Colors.white, // Fondo blanco
                   borderRadius: BorderRadius.circular(15), // Bordes redondeados
@@ -94,7 +94,7 @@ class MainLayout extends StatelessWidget {
           SliverFillRemaining(
             hasScrollBody: true,
             child: MaxWidthBox(
-                maxWidth: 1200,
+                maxWidth: 1600,
                 backgroundColor: Colors.transparent,
                 child: child),
           ),

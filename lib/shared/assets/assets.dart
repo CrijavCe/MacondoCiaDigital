@@ -20,6 +20,8 @@ class _ResImages {
   final traficImage2 = 'res/backgrounds/track_info.jpg';
   final relaxingAbstractYellow = 'res/backgrounds/Relaxing_Abstract_yellow.gif';
   final relaxingAbstractBlue = 'res/backgrounds/Relaxing_Abstract_blue.gif';
+
+  final hand = 'res/images/hand.png';
 }
 
 class _ResIcons {
