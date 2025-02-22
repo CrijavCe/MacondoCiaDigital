@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal/config/config.dart';
-import 'package:minimal/shared/assets/assets.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class TrafficInfoWidgetTypeTwo extends StatelessWidget {
@@ -40,7 +39,11 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
     return [
       FutureBuilder(
         future:
-            precacheImage(AssetImage(Res.images.relaxingAbstractBlue), context),
+            //  precacheImage(AssetImage(Res.images.relaxingAbstractBlue), context),
+            precacheImage(
+                NetworkImage(
+                    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHVpcW5zeXVjdGxicXZpam5wenJqcHNkZDh0MGZ6NTRqZGx3azZkcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"),
+                context),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return FadeIn(
@@ -50,7 +53,9 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                    image: AssetImage(Res.images.relaxingAbstractBlue),
+                    // image: AssetImage(Res.images.relaxingAbstractBlue),
+                    image: NetworkImage(
+                        "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHVpcW5zeXVjdGxicXZpam5wenJqcHNkZDh0MGZ6NTRqZGx3azZkcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -128,15 +133,6 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
           ),
         ),
       ),
-      /* Align(
-        alignment: Alignment.topCenter,
-        child: TagWrapper(tags: [
-          Tag(
-            tag: "Ver el proceso completo",
-            onPressed: () {},
-          ),
-        ]),
-      ),*/
       Align(
         alignment: Alignment.center,
         child: Container(
@@ -214,7 +210,10 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
         flex: 2,
         child: FutureBuilder(
           future: precacheImage(
-              AssetImage(Res.images.relaxingAbstractYellow), context),
+              //AssetImage(Res.images.relaxingAbstractYellow), context),
+              NetworkImage(
+                  "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHVpcW5zeXVjdGxicXZpam5wenJqcHNkZDh0MGZ6NTRqZGx3azZkcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"),
+              context),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return FadeInLeft(
@@ -224,7 +223,9 @@ class TrafficInfoWidgetTypeTwo extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     image: DecorationImage(
-                        image: AssetImage(Res.images.relaxingAbstractBlue),
+                        //image: AssetImage(Res.images.relaxingAbstractBlue),
+                        image: NetworkImage(
+                            "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHVpcW5zeXVjdGxicXZpam5wenJqcHNkZDh0MGZ6NTRqZGx3azZkcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"),
                         fit: BoxFit.fill,
                         opacity: 0.8),
                   ),

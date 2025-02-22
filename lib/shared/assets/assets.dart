@@ -27,7 +27,9 @@ class _ResImages {
 class _ResIcons {
   _ResIcons._();
 
-  final whatsAppIcon = 'res/icons/whatsapp.png';
-  final whatsAppIcon1 = 'res/icons/Whatapp2.png';
-  final instagramIcon = 'res/icons/whatsapp.png';
+  final confianzaIcon = 'res/icons/confianza.png';
+  final calidadIcon = 'res/icons/calidad.png';
+  final servicioIcon = 'res/icons/servicio.png';
+  final innovacionIcon = 'res/icons/innovacion.png';
+  final compromisoIcon = 'res/icons/compromiso.png';
 }

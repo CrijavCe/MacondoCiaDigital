@@ -300,12 +300,15 @@ class ListItem extends StatelessWidget {
           child: Container(
             margin: ResponsiveBreakpoints.of(context).isTablet ||
                     ResponsiveBreakpoints.of(context).isMobile
-                ? EdgeInsets.symmetric(horizontal: 50.0)
-                : EdgeInsets.symmetric(horizontal: 100.0),
+                ? EdgeInsets.symmetric(horizontal: 40.0)
+                : EdgeInsets.symmetric(horizontal: 80.0),
             child: Text(
               textAlign: textAlign,
               title,
-              style: headlineTextStyle,
+              style: ResponsiveBreakpoints.of(context).isTablet ||
+                      ResponsiveBreakpoints.of(context).isMobile
+                  ? headlineTextStyle
+                  : headlineTextStyleBlack,
             ),
           ),
         ),
@@ -325,7 +328,10 @@ class ListItem extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(top: 50.0),
+              padding: ResponsiveBreakpoints.of(context).isTablet ||
+                      ResponsiveBreakpoints.of(context).isMobile
+                  ? const EdgeInsets.only(top: 30.0)
+                  : const EdgeInsets.only(top: 30.0),
               child: Container(
                 margin: marginBottom24,
                 child: ReadMoreButton(

@@ -22,7 +22,7 @@ class CustomTextSwipper extends StatelessWidget {
               height: ResponsiveBreakpoints.of(context).isTablet ||
                       ResponsiveBreakpoints.of(context).isMobile
                   ? size.height * 0.45
-                  : size.height * 0.25,
+                  : size.height * 0.35,
               autoPlay: true,
               enlargeCenterPage: true,
               aspectRatio: 16 / 9,

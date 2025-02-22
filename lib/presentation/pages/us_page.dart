@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:minimal/config/config.dart';
 import 'package:minimal/presentation/widget/footer_wg.dart';
+import 'package:minimal/presentation/widget/interactive_card_wg.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 const String listItemTitleText = "A BETTER BLOG FOR WRITING";
 const String listItemPreviewText =
@@ -14,7 +16,29 @@ class UsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SingleChildScrollView(
+    List<Widget> sections = [
+      const ListItem(
+        title: "NUESTROS VALORES",
+        viewButton: false,
+        leftTitle: false,
+      ),
+      InteractiveCardWrap(),
+      divider,
+      const Footer(),
+    ];
+    return Padding(
+      padding: ResponsiveBreakpoints.of(context).isTablet
+          ? const EdgeInsets.symmetric(horizontal: 10.0)
+          : EdgeInsets.zero,
+      child: ListView.builder(
+        itemCount: sections.length,
+        itemBuilder: (context, index) {
+          return sections[index];
+        },
+      ),
+    );
+
+    /*   SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,6 +51,6 @@ class UsPage extends ConsumerWidget {
           const Footer(),
         ],
       ),
-    );
+    );*/
   }
 }

@@ -5,13 +5,13 @@ import 'package:minimal/config/styles/app_colors.dart';
 // Simple
 TextStyle headlineTextStyle = GoogleFonts.montserrat(
     textStyle: const TextStyle(
-        fontSize: 26,
+        fontSize: 24,
         color: AppColors.textPrimary,
         letterSpacing: 1.5,
         fontWeight: FontWeight.w300));
 TextStyle headlineTextStyleEmoji = GoogleFonts.notoColorEmoji(
     textStyle: const TextStyle(
-        fontSize: 26,
+        fontSize: 25,
         color: AppColors.textPrimary,
         letterSpacing: 1.5,
         fontWeight: FontWeight.w300));

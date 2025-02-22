@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal/config/config.dart';
-import 'package:minimal/shared/assets/assets.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class TrafficInfoWidget extends StatelessWidget {
@@ -40,7 +39,9 @@ class TrafficInfoWidget extends StatelessWidget {
     return [
       FutureBuilder(
         future: precacheImage(
-            AssetImage(Res.images.relaxingAbstractYellow), context),
+            // AssetImage(Res.images.relaxingAbstractYellow), context),
+            NetworkImage("https://i.giphy.com/rgzOwma0qMbM3x7Fqi.webp"),
+            context),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return FadeIn(
@@ -50,8 +51,10 @@ class TrafficInfoWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                    image: AssetImage(
-                        Res.images.relaxingAbstractYellow), // Imagen de fondo
+                    //  image: AssetImage(Res.images.relaxingAbstractYellow),
+                    image: NetworkImage(
+                        "https://i.giphy.com/rgzOwma0qMbM3x7Fqi.webp"),
+                    // Imagen de fondo
                     fit: BoxFit.cover,
                     opacity: 1.0,
                   ),
@@ -106,7 +109,9 @@ class TrafficInfoWidget extends StatelessWidget {
         flex: 2,
         child: FutureBuilder(
           future: precacheImage(
-              AssetImage(Res.images.relaxingAbstractYellow), context),
+              //  AssetImage(Res.images.relaxingAbstractYellow), context),
+              NetworkImage("https://i.giphy.com/rgzOwma0qMbM3x7Fqi.webp"),
+              context),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return FadeInLeft(
@@ -116,7 +121,9 @@ class TrafficInfoWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     image: DecorationImage(
-                      image: AssetImage(Res.images.relaxingAbstractYellow),
+                      // image: AssetImage(Res.images.relaxingAbstractYellow),
+                      image: NetworkImage(
+                          "https://i.giphy.com/rgzOwma0qMbM3x7Fqi.webp"),
                       fit: BoxFit.fill,
                     ),
                   ),
