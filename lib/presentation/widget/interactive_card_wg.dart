@@ -67,7 +67,7 @@ class _InteractiveCardState extends State<InteractiveCard>
                       child: _buildCard(
                           widget.text, Colors.blueGrey, Colors.white),
                     )
-                  : _buildCard(null, Colors.grey, Colors.black,
+                  : _buildCard(null, Colors.white, Colors.black,
                       imagePath: widget.imagePath),
             );
           },
@@ -95,7 +95,11 @@ class _InteractiveCardState extends State<InteractiveCard>
                 child: Text(text,
                     textAlign: TextAlign.center, style: subtitleTextStyleWhite),
               )
-            : Image.asset(imagePath!, fit: BoxFit.cover),
+            : Image.asset(
+                imagePath!,
+                fit: BoxFit.cover,
+                color: Colors.lightGreen,
+              ),
       ),
     );
   }
@@ -114,39 +118,42 @@ class InteractiveCardWrap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Wrap(
-        spacing: 20,
-        runSpacing: 40,
-        alignment: WrapAlignment.spaceAround,
-        children: [
-          InteractiveCard(
-            //imagePath: "assets/trust.png",
-            imagePath: Res.icons.confianzaIcon,
-            text:
-                "CONFIANZA\n\nConstruimos relaciones basadas en transparencia, honestidad e integridad",
-          ),
-          InteractiveCard(
-            imagePath: Res.icons.calidadIcon,
-            text:
-                "CALIDAD\n\nGarantizamos servicios precisos y de alto nivel en cada trámite y curso",
-          ),
-          InteractiveCard(
-            imagePath: Res.icons.servicioIcon,
-            text:
-                "EXCELENCIA EN SERVICIO\n\nPriorizamos la satisfacción con atención accesible, amigable y eficaz",
-          ),
-          InteractiveCard(
-            imagePath: Res.icons.innovacionIcon,
-            text:
-                "INNOVACIÓN CONTINUA\n\nMejoramos constantemente con tecnología de vanguardia",
-          ),
-          InteractiveCard(
-            imagePath: Res.icons.compromisoIcon,
-            text:
-                "COMPROMISO CON EL CAMBIO\n\nTransformamos realidades, un trámite a la vez.",
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 40.0),
+      child: Center(
+        child: Wrap(
+          spacing: 20,
+          runSpacing: 40,
+          alignment: WrapAlignment.spaceAround,
+          children: [
+            InteractiveCard(
+              //imagePath: "assets/trust.png",
+              imagePath: Res.icons.confianzaIcon,
+              text:
+                  "CONFIANZA\n\nConstruimos relaciones basadas en transparencia, honestidad e integridad",
+            ),
+            InteractiveCard(
+              imagePath: Res.icons.calidadIcon,
+              text:
+                  "CALIDAD\n\nGarantizamos servicios precisos y de alto nivel en cada trámite y curso",
+            ),
+            InteractiveCard(
+              imagePath: Res.icons.servicioIcon,
+              text:
+                  "EXCELENCIA EN SERVICIO\n\nPriorizamos la satisfacción con atención accesible, amigable y eficaz",
+            ),
+            InteractiveCard(
+              imagePath: Res.icons.innovacionIcon,
+              text:
+                  "INNOVACIÓN CONTINUA\n\nMejoramos constantemente con tecnología de vanguardia",
+            ),
+            InteractiveCard(
+              imagePath: Res.icons.compromisoIcon,
+              text:
+                  "COMPROMISO CON EL CAMBIO\n\nTransformamos realidades, un trámite a la vez.",
+            ),
+          ],
+        ),
       ),
     );
   }

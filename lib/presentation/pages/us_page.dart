@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:minimal/config/config.dart';
 import 'package:minimal/presentation/widget/footer_wg.dart';
 import 'package:minimal/presentation/widget/interactive_card_wg.dart';
+import 'package:minimal/presentation/widget/traffic_info_wg_type_two.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 const String listItemTitleText = "A BETTER BLOG FOR WRITING";
@@ -17,13 +18,18 @@ class UsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     List<Widget> sections = [
+      dividerPadding,
+      TrafficInfoWidgetTypeTwo(
+        usWg: true,
+      ),
+      dividerPadding,
       const ListItem(
         title: "NUESTROS VALORES",
         viewButton: false,
         leftTitle: false,
       ),
       InteractiveCardWrap(),
-      divider,
+      dividerPadding,
       const Footer(),
     ];
     return Padding(
@@ -37,20 +43,5 @@ class UsPage extends ConsumerWidget {
         },
       ),
     );
-
-    /*   SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ListItem(
-            title: "Nosotros",
-            viewButton: false,
-            leftTitle: false,
-          ),
-          divider,
-          const Footer(),
-        ],
-      ),
-    );*/
   }
 }
