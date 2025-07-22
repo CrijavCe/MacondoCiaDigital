@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:minimal/config/config.dart';
 import 'package:minimal/presentation/widget/footer_wg.dart';
 import 'package:minimal/presentation/widget/interactive_card_wg.dart';
+import 'package:minimal/presentation/widget/mison_vision_wg.dart';
 import 'package:minimal/presentation/widget/traffic_info_wg_type_two.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -18,6 +19,8 @@ class UsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     List<Widget> sections = [
+      dividerPadding,
+      MisionVisionWG(),
       dividerPadding,
       TrafficInfoWidgetTypeTwo(
         usWg: true,
